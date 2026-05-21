@@ -1,0 +1,23 @@
+product_id,name,category,price,cost,sku,stock_quantity
+1,Lenovo IdeaPad 15,Laptops,699.99,490.0,LAP-001,120
+2,Asus VivoBook 14,Laptops,549.99,380.0,LAP-002,85
+3,Acer Aspire 5,Laptops,479.99,320.0,LAP-003,200
+4,HP Pavilion 15,Laptops,629.99,440.0,LAP-004,60
+5,Samsung Galaxy A54,Phones,399.99,260.0,PHO-001,300
+6,Xiaomi Redmi Note 12,Phones,249.99,150.0,PHO-002,450
+7,Motorola Moto G84,Phones,299.99,190.0,PHO-003,180
+8,Nokia G42,Phones,199.99,120.0,PHO-004,220
+9,Samsung Galaxy Tab A8,Tablets,299.99,190.0,TAB-001,140
+10,Lenovo Tab M10,Tablets,199.99,130.0,TAB-002,95
+11,Huawei MatePad T10,Tablets,179.99,110.0,TAB-003,75
+12,Sony WH-1000XM4,Headphones,279.99,160.0,HEA-001,200
+13,JBL Tune 510BT,Headphones,49.99,25.0,HEA-002,500
+14,Jabra Evolve2 30,Headphones,129.99,75.0,HEA-003,160
+15,LG 27MP60G Monitor,Monitors,229.99,150.0,MON-001,80
+16,Samsung 24T350 Monitor,Monitors,179.99,115.0,MON-002,110
+17,Logitech MK470 Combo,Accessories,59.99,30.0,ACC-001,350
+18,Razer DeathAdder V2,Accessories,49.99,22.0,ACC-002,280
+19,Anker USB-C Hub 7in1,Accessories,39.99,18.0,ACC-003,400
+20,JBL Flip 6 Speaker,Speakers,129.99,72.0,SPE-001,190
+21,Logitech C920 Webcam,Webcams,89.99,48.0,WEB-001,230
+22,Razer Kiyo Webcam,Webcams,99.99,55.0,WEB-002,120
