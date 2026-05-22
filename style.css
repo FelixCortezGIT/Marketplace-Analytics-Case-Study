@@ -1,5 +1,10 @@
 
 
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f7fa;
+}
+
 .card {
     background-color: white;
     padding: 24px;
@@ -19,6 +24,15 @@
     border: 1px solid #d6d6d6;
     padding: 16px;
     border-radius: 8px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.metric-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
 table {
@@ -52,8 +66,9 @@ tr:hover {
 .chart-placeholder {
     border: 2px dashed #bdbdbd;
     border-radius: 12px;
-    padding: 20px;
+    padding: 40px;
     background-color: #f8f8f8;
+    margin-bottom: 16px;
 }
 
 .chart-placeholder img {
@@ -82,4 +97,24 @@ footer {
 
 footer p {
     margin-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 18px;
+    }
 }
