@@ -54,3 +54,11 @@ tr:hover {
     font-weight: 600;
     color: #555;
 }
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 12px;
+}
