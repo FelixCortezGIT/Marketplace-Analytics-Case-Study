@@ -24,45 +24,47 @@
         <h2>Project Overview</h2>
 
         <p>
-            This project simulates an internal ecommerce reporting workflow used to
-            evaluate marketplace performance across multiple countries and sales channels.
+            This project analyzes ecommerce marketplace data from three CSV sources:
+            orders, products, and countries. The goal is to clean, combine, and evaluate
+            sales data across multiple marketplaces and countries.
         </p>
 
         <p>
-            The analysis combines transactional data, product information, and
-            country-level metrics to generate business insights focused on revenue,
-            profitability, operational risks, and sales trends.
+            The analysis focuses on revenue, profit, order volume, return behavior,
+            product performance, and country-level marketplace trends.
         </p>
     </section>
 
-    <section class="card">
+    <section class="card"></section>
     <h2>Key Metrics</h2>
 
     <div class="metrics-grid">
-        <div class="metric-box">
-            <h3>Total Revenue</h3>
-            <p>€124,850</p>
-        </div>
 
-        <div class="metric-box">
-            <h3>Total Orders</h3>
-            <p>3,420</p>
-        </div>
+            <div class="metric-box">
+                <h3>Total Revenue</h3>
+                <p>€261,449</p>
+            </div>
 
-        <div class="metric-box">
-            <h3>Average Order Value</h3>
-            <p>€36.50</p>
-        </div>
+            <div class="metric-box">
+                <h3>Total Profit</h3>
+                <p>€139,492</p>
+            </div>
 
-        <div class="metric-box">
-            <h3>Profit Margin</h3>
-            <p>18.7%</p>
+            <div class="metric-box">
+                <h3>Total Orders</h3>
+                <p>798</p>
+            </div>
+
+            <div class="metric-box">
+                <h3>Average Margin</h3>
+                <p>40.58%</p>
+            </div>
+
         </div>
-    </div>
     </section>
 
     <section class="card">
-    <h2>Marketplace Performance</h2>
+    <h2>Marketplace and Country Performance</h2>
 
     <table>
         <thead>
@@ -120,26 +122,72 @@
     </section>
 
     <section class="card">
+        <h2>Product Performance</h2>
+
+        <p>
+            This section highlights the strongest and weakest product-level results
+            based on revenue, units sold, profit margin, and return behavior.
+        </p>
+
+        <div class="charts-grid">
+
+            <div class="chart-placeholder">
+                Top Products by Revenue
+            </div>
+
+            <div class="chart-placeholder">
+                Low Margin Products
+            </div>
+
+            <div class="chart-placeholder">
+                Top Products by Return Rate
+            </div>
+
+            <div class="chart-placeholder">
+                Top Products by Units Sold
+            </div>
+
+        </div>
+    </section>
+
+    <section class="card">
+        <h2>Category Analysis</h2>
+
+        <p>
+            Category-level analysis focused on revenue contribution,
+            profitability, and sales distribution across product groups.
+        </p>
+
+        <div class="charts-grid">
+
+            <div class="chart-placeholder">
+                Revenue by Category
+            </div>
+
+            <div class="chart-placeholder">
+                Average Margin by Category
+            </div>
+
+            <div class="chart-placeholder">
+                Revenue by Category per Country
+            </div>
+
+            <div class="chart-placeholder">
+                Total Units Sold by Category
+            </div>
+
+        </div>
+    </section>
+
+    <section class="card">
         <h2>Operational Insights</h2>
 
         <ul>
-            <li>Amazon Germany generated the highest total revenue.</li>
-
-            <li>
-                Allegro showed strong order volume but lower average order value.
-            </li>
-
-            <li>
-                Kaufland marketplace had the lowest profit margin across all channels.
-            </li>
-
-            <li>
-                Seasonal sales peaks were identified during promotional campaigns.
-            </li>
-
-            <li>
-                Several products showed declining profitability due to rising logistics costs.
-            </li>
+            <li>Amazon generated the highest share of marketplace revenue.</li>
+            <li>Poland and Germany were the strongest countries by total revenue.</li>
+            <li>Germany generated the highest total profit.</li>
+            <li>October and June showed the strongest monthly revenue performance.</li>
+            <li>Hungary and Austria had the highest return rates among countries.</li>
         </ul>
     </section>
 
