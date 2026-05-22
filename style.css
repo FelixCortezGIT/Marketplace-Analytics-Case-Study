@@ -62,3 +62,16 @@ ul {
 li {
     margin-bottom: 12px;
 }
+
+footer {
+    margin-top: 40px;
+    padding: 24px;
+    text-align: center;
+    background-color: #0d3b47;
+    color: white;
+    border-radius: 12px;
+}
+
+footer p {
+    margin-bottom: 10px;
+}
