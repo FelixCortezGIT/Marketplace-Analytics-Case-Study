@@ -42,17 +42,25 @@ tr:hover {
     background-color: #f9fafb;
 }
 
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+}
+
 .chart-placeholder {
-    height: 220px;
-    border: 2px dashed #c7c7c7;
-    border-radius: 10px;
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f8f9fb;
-    font-weight: 600;
-    color: #555;
+    border: 2px dashed #bdbdbd;
+    border-radius: 12px;
+    padding: 20px;
+    background-color: #f8f8f8;
+}
+
+.chart-placeholder img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
 }
 
 ul {
