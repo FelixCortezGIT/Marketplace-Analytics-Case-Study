@@ -1,0 +1,20 @@
+
+
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.metric-box {
+    border: 1px solid #d6d6d6;
+    padding: 16px;
+    border-radius: 8px;
+}
+
