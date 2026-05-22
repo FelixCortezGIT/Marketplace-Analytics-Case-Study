@@ -66,7 +66,7 @@ tr:hover {
 .chart-placeholder {
     border: 2px dashed #bdbdbd;
     border-radius: 12px;
-    padding: 40px;
+    padding: 24px;
     background-color: #f8f8f8;
     margin-bottom: 16px;
 }
@@ -100,6 +100,7 @@ footer p {
 }
 
 @media (max-width: 900px) {
+
     .metrics-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -110,11 +111,20 @@ footer p {
 }
 
 @media (max-width: 600px) {
+
     .metrics-grid {
         grid-template-columns: 1fr;
     }
 
     .card {
         padding: 18px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header h2 {
+        font-size: 1.2rem;
     }
 }
