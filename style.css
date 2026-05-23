@@ -66,16 +66,25 @@ tr:hover {
 .chart-placeholder {
     border: 2px dashed #bdbdbd;
     border-radius: 12px;
-    padding: 24px;
+    padding: 8px;
     background-color: #f8f8f8;
     margin-bottom: 16px;
 }
 
 .chart-placeholder img {
     width: 100%;
+    max-height: 340px;
     height: auto;
+    object-fit: contain;
     display: block;
     border-radius: 8px;
+}
+
+.marketplace-charts {
+    grid-template-columns: 0.9fr 0.9fr;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .chart-hero {
@@ -86,6 +95,7 @@ tr:hover {
 .chart-hero img {
     width: 100%;
     border-radius: 10px;
+    max-height: 480px;
 }
 
 .insight-box {

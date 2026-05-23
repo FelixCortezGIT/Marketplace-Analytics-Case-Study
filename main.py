@@ -86,20 +86,29 @@ print("✓ 02_revenue_by_country.png")
 
 # === 3. TOP PRODUCTS ===
 top_products = df.groupby("name")["revenue"].sum().sort_values(ascending=False).head(10)
-fig, ax = plt.subplots(figsize=(10, 5))
-bars = ax.bar(range(len(top_products)), top_products.to_numpy(), color="#0d3b47")
-ax.set_xticks(range(len(top_products)))
-ax.set_xticklabels(top_products.index, rotation=30, ha="right", fontsize=9)
-# ax.set_title("Top 10 Products by Revenue", fontsize=16, fontweight="bold")
-ax.set_ylabel("Total Revenue (EUR)")
+fig, ax = plt.subplots(figsize=(13, 4.8))
+
+top_products = top_products.sort_values(ascending=True)
+bars = ax.barh(top_products.index, top_products.to_numpy(), color="#0d3b47")
+
+ax.set_xlabel("Total Revenue (EUR)", fontsize=13)
+ax.set_xlim(0, top_products.max() * 1.15)
+ax.tick_params(axis="both", labelsize=12)
+ax.grid(axis="x", alpha=0.18)
+
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+
 for bar, val in zip(bars, top_products.to_numpy()):
     ax.text(
-        bar.get_x() + bar.get_width() / 2,
-        bar.get_height() + 200,
+        val + top_products.max() * 0.02,
+        bar.get_y() + bar.get_height() / 2,
         f"€{val:,.0f}",
-        ha="center",
-        fontsize=8,
+        va="center",
+        fontsize=12,
+        fontweight="bold",
     )
+
 plt.tight_layout()
 plt.savefig("cleaned_data/03_top_products.png", dpi=240, bbox_inches="tight")
 plt.close()
@@ -157,20 +166,29 @@ print("✓ 05_return_rate_by_country.png")
 # === 6. RETURN RATE BY PRODUCT ===
 return_product = df.groupby("name")["returned"].mean() * 100
 return_product = return_product.sort_values(ascending=False).head(10)
-fig, ax = plt.subplots(figsize=(10, 5))
-bars = ax.bar(range(len(return_product)), return_product.to_numpy(), color="#e74c3c")
-ax.set_xticks(range(len(return_product)))
-ax.set_xticklabels(return_product.index, rotation=30, ha="right", fontsize=9)
-# ax.set_title("Top 10 Products by Return Rate", fontsize=16, fontweight="bold")
-ax.set_ylabel("Return Rate (%)")
+fig, ax = plt.subplots(figsize=(8, 4.5))
+
+return_product = return_product.sort_values(ascending=True)
+bars = ax.barh(return_product.index, return_product.to_numpy(), color="#e74c3c")
+
+ax.set_xlabel("Return Rate (%)", fontsize=12)
+ax.set_xlim(0, return_product.max() * 1.18)
+ax.tick_params(axis="both", labelsize=11)
+ax.grid(axis="x", alpha=0.18)
+
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+
 for bar, val in zip(bars, return_product.to_numpy()):
     ax.text(
-        bar.get_x() + bar.get_width() / 2,
-        bar.get_height() + 0.2,
+        val + return_product.max() * 0.02,
+        bar.get_y() + bar.get_height() / 2,
         f"{val:.1f}%",
-        ha="center",
-        fontsize=8,
+        va="center",
+        fontsize=11,
+        fontweight="bold",
     )
+
 plt.tight_layout()
 plt.savefig("cleaned_data/06_return_rate_by_product.png", dpi=240, bbox_inches="tight")
 plt.close()
@@ -178,41 +196,66 @@ print("✓ 06_return_rate_by_product.png")
 
 # === 7. MONTHLY TREND ===
 monthly = df.groupby("month")["revenue"].sum()
+month_labels = monthly.index.strftime("%b")
 fig, ax = plt.subplots(figsize=(11, 5))
 ax.plot(
-    monthly.index.astype(str),
+    month_labels,
     monthly.to_numpy(),
     marker="o",
     color="#2aa8cc",
-    linewidth=2.8,
-    markersize=7,
+    linewidth=3.2,
+    markersize=8,
 )
 ax.fill_between(
-    monthly.index.astype(str), monthly.to_numpy(), alpha=0.2, color="#2aa8cc"
+    month_labels, monthly.to_numpy(), alpha=0.12, color="#2aa8cc"
 )
 ax.set_ylabel("Revenue (EUR)", fontsize=12)
-ax.set_xlabel("Month", fontsize=12)
+ax.set_xlabel("2024", fontsize=12)
 ax.tick_params(axis="both", labelsize=11)
+ax.grid(axis="y", alpha=0.18)
 ax.set_ylim(10000, monthly.max() * 1.08)
-plt.xticks(rotation=45)
+ax.grid(axis="y", alpha=0.18)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+plt.xticks(rotation=0)
 for i, val in enumerate(monthly.to_numpy()):
-    ax.text(i, val + 400, f"€{val:,.0f}", ha="center", fontsize=9)
+    ax.text(
+        i,
+        val + 400,
+        f"€{val:,.0f}",
+        ha="center",
+        fontsize=12,
+        fontweight="bold",
+    )
 plt.tight_layout()
 plt.savefig("cleaned_data/07_monthly_trend.png", dpi=240, bbox_inches="tight")
 plt.close()
 
 # === 8. REVENUE BY MARKETPLACE ===
 rev_market = df.groupby("marketplace")["revenue"].sum().sort_values(ascending=False)
-fig, ax = plt.subplots(figsize=(6, 5))
+fig, ax = plt.subplots(figsize=(8, 4.5))
 colors = ["#FF9900", "#0057e7", "#00A650"]
-wedges, texts, autotexts = ax.pie(
-    rev_market.to_numpy(),
-    labels=rev_market.index,
-    autopct="%1.1f%%",
-    colors=colors,
-    startangle=90,
-)
-# ax.set_title("Revenue by Marketplace", fontsize=16, fontweight="bold")
+
+bars = ax.barh(rev_market.index, rev_market.to_numpy(), color=colors)
+
+ax.set_xlabel("Total Revenue (EUR)", fontsize=12)
+ax.set_xlim(0, rev_market.max() * 1.15)
+ax.tick_params(axis="both", labelsize=11)
+ax.grid(axis="x", alpha=0.18)
+
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+
+for bar, val in zip(bars, rev_market.to_numpy()):
+    ax.text(
+        val + rev_market.max() * 0.02,
+        bar.get_y() + bar.get_height() / 2,
+        f"€{val:,.0f}",
+        va="center",
+        fontsize=11,
+        fontweight="bold",
+    )
+
 plt.tight_layout()
 plt.savefig("cleaned_data/08_revenue_by_marketplace.png", dpi=240, bbox_inches="tight")
 plt.close()
@@ -220,7 +263,7 @@ print("✓ 08_revenue_by_marketplace.png")
 
 # === 9. REVENUE BY CATEGORY ===
 rev_cat = df.groupby("category")["revenue"].sum().sort_values(ascending=True)
-fig, ax = plt.subplots(figsize=(13, 6))
+fig, ax = plt.subplots(figsize=(13, 4.8))
 bars = ax.barh(rev_cat.index, rev_cat.to_numpy(), color="#1b4332")
 # ax.set_title("Revenue by Category", fontsize=16, fontweight="bold")
 ax.set_xlabel("Total Revenue (EUR)", fontsize=13)
@@ -333,28 +376,39 @@ print("✓ 13_orders_by_country.png")
 
 # === 14. MONTHLY ORDERS TREND ===
 monthly_orders = df.groupby("month")["order_id"].count()
+month_labels = monthly_orders.index.strftime("%b")
 fig, ax = plt.subplots(figsize=(11, 5))
 ax.plot(
-    monthly_orders.index.astype(str),
+    month_labels,
     monthly_orders.to_numpy(),
     marker="o",
     color="#e67e22",
-    linewidth=2.8,
-    markersize=7,
+    linewidth=3.2,
+    markersize=8,
 )
 ax.fill_between(
-    monthly_orders.index.astype(str),
+    month_labels,
     monthly_orders.to_numpy(),
-    alpha=0.2,
+    alpha=0.12,
     color="#e67e22",
 )
 ax.set_ylabel("Number of Orders", fontsize=12)
-ax.set_xlabel("Month", fontsize=12)
+ax.set_xlabel("2024", fontsize=12)
 ax.tick_params(axis="both", labelsize=11)
+ax.grid(axis="y", alpha=0.18)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
 ax.set_ylim(40, monthly_orders.max() * 1.08)
-plt.xticks(rotation=45)
+plt.xticks(rotation=0)
 for i, val in enumerate(monthly_orders.to_numpy()):
-    ax.text(i, val + 1, str(val), ha="center", fontsize=9)
+    ax.text(
+        i,
+        val + 1,
+        str(val),
+        ha="center",
+        fontsize=12,
+        fontweight="bold"
+    )
 plt.tight_layout()
 plt.savefig("cleaned_data/14_monthly_orders_trend.png", dpi=240, bbox_inches="tight")
 plt.close()
@@ -386,18 +440,22 @@ print("✓ 15_units_sold_by_product.png")
 orders_market = (
     df.groupby("marketplace")["order_id"].count().sort_values(ascending=False)
 )
-fig, ax = plt.subplots(figsize=(7, 5))
+fig, ax = plt.subplots(figsize=(8, 4.5))
 colors = ["#FF9900", "#0057e7", "#00A650"]
 bars = ax.bar(orders_market.index, orders_market.to_numpy(), color=colors)
 # ax.set_title("Number of Orders by Marketplace", fontsize=16, fontweight="bold")
-ax.set_ylabel("Number of Orders")
+ax.set_ylabel("Number of Orders", fontsize=12)
+ax.tick_params(axis="both", labelsize=11)
+ax.grid(axis="y", alpha=0.18)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
 for bar, val in zip(bars, orders_market.to_numpy()):
     ax.text(
         bar.get_x() + bar.get_width() / 2,
         bar.get_height() + 1,
         str(val),
         ha="center",
-        fontsize=12,
+        fontsize=13,
         fontweight="bold",
     )
 plt.tight_layout()
