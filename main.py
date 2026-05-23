@@ -61,17 +61,23 @@ print("✓ 01_duplicates.png")
 
 # === 2. REVENUE BY COUNTRY ===
 rev_country = df.groupby("country_name")["revenue"].sum().sort_values(ascending=True)
-fig, ax = plt.subplots(figsize=(9, 5))
+fig, ax = plt.subplots(figsize=(11, 5.5))
 bars = ax.barh(rev_country.index, rev_country.to_numpy(), color="#2aa8cc")
 # # ax.set_title("Revenue by Country", fontsize=16, fontweight="bold")
-ax.set_xlabel("Total Revenue (EUR)")
+ax.set_xlabel("Total Revenue (EUR)", fontsize=12)
+ax.set_xlim(0, rev_country.max() * 1.15)
+ax.tick_params(axis="both", labelsize=11)
+ax.grid(axis="x", alpha=0.18)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
 for bar, val in zip(bars, rev_country.to_numpy()):
     ax.text(
         val + 500,
         bar.get_y() + bar.get_height() / 2,
         f"€{val:,.0f}",
         va="center",
-        fontsize=9,
+        fontsize=11,
+        fontweight="bold",
     )
 plt.tight_layout()
 plt.savefig("cleaned_data/02_revenue_by_country.png", dpi=240, bbox_inches="tight")
@@ -172,28 +178,28 @@ print("✓ 06_return_rate_by_product.png")
 
 # === 7. MONTHLY TREND ===
 monthly = df.groupby("month")["revenue"].sum()
-fig, ax = plt.subplots(figsize=(10, 5))
+fig, ax = plt.subplots(figsize=(11, 5))
 ax.plot(
     monthly.index.astype(str),
     monthly.to_numpy(),
     marker="o",
     color="#2aa8cc",
-    linewidth=2,
-    markersize=6,
+    linewidth=2.8,
+    markersize=7,
 )
 ax.fill_between(
     monthly.index.astype(str), monthly.to_numpy(), alpha=0.2, color="#2aa8cc"
 )
-# ax.set_title("Monthly Revenue Trend 2024", fontsize=16, fontweight="bold")
-ax.set_ylabel("Revenue (EUR)")
-ax.set_xlabel("Month")
+ax.set_ylabel("Revenue (EUR)", fontsize=12)
+ax.set_xlabel("Month", fontsize=12)
+ax.tick_params(axis="both", labelsize=11)
+ax.set_ylim(10000, monthly.max() * 1.08)
 plt.xticks(rotation=45)
 for i, val in enumerate(monthly.to_numpy()):
-    ax.text(i, val + 500, f"€{val:,.0f}", ha="center", fontsize=7)
+    ax.text(i, val + 400, f"€{val:,.0f}", ha="center", fontsize=9)
 plt.tight_layout()
 plt.savefig("cleaned_data/07_monthly_trend.png", dpi=240, bbox_inches="tight")
 plt.close()
-print("✓ 07_monthly_trend.png")
 
 # === 8. REVENUE BY MARKETPLACE ===
 rev_market = df.groupby("marketplace")["revenue"].sum().sort_values(ascending=False)
@@ -214,17 +220,23 @@ print("✓ 08_revenue_by_marketplace.png")
 
 # === 9. REVENUE BY CATEGORY ===
 rev_cat = df.groupby("category")["revenue"].sum().sort_values(ascending=True)
-fig, ax = plt.subplots(figsize=(9, 5))
+fig, ax = plt.subplots(figsize=(13, 6))
 bars = ax.barh(rev_cat.index, rev_cat.to_numpy(), color="#1b4332")
 # ax.set_title("Revenue by Category", fontsize=16, fontweight="bold")
-ax.set_xlabel("Total Revenue (EUR)")
+ax.set_xlabel("Total Revenue (EUR)", fontsize=13)
+ax.set_xlim(0, rev_cat.max() * 1.15)
+ax.tick_params(axis="both", labelsize=12)
+ax.grid(axis="x", alpha=0.18)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
 for bar, val in zip(bars, rev_cat.to_numpy()):
     ax.text(
         val + 200,
         bar.get_y() + bar.get_height() / 2,
         f"€{val:,.0f}",
         va="center",
-        fontsize=9,
+        fontsize=13,
+        fontweight="bold",
     )
 plt.tight_layout()
 plt.savefig("cleaned_data/09_revenue_by_category.png", dpi=240, bbox_inches="tight")
@@ -233,17 +245,23 @@ print("✓ 09_revenue_by_category.png")
 
 # === 10. MARGIN BY CATEGORY ===
 margin_cat = df.groupby("category")["margin_pct"].mean().sort_values(ascending=True)
-fig, ax = plt.subplots(figsize=(9, 5))
+fig, ax = plt.subplots(figsize=(11, 5.5))
 bars = ax.barh(margin_cat.index, margin_cat.to_numpy(), color="#145d72")
 # ax.set_title("Average Margin by Category (%)", fontsize=16, fontweight="bold")
-ax.set_xlabel("Average Margin (%)")
+ax.set_xlabel("Average Margin (%)", fontsize=12)
+ax.set_xlim(0, margin_cat.max() * 1.15)
+ax.tick_params(axis="both", labelsize=11)
+ax.grid(axis="x", alpha=0.18)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
 for bar, val in zip(bars, margin_cat.to_numpy()):
     ax.text(
         val + 0.2,
         bar.get_y() + bar.get_height() / 2,
         f"{val:.1f}%",
         va="center",
-        fontsize=9,
+        fontsize=11,
+        fontweight="bold",
     )
 plt.tight_layout()
 plt.savefig("cleaned_data/10_margin_by_category.png", dpi=240, bbox_inches="tight")
@@ -252,17 +270,23 @@ print("✓ 10_margin_by_category.png")
 
 # === 11. PROFIT BY COUNTRY ===
 profit_country = df.groupby("country_name")["profit"].sum().sort_values(ascending=True)
-fig, ax = plt.subplots(figsize=(9, 5))
+fig, ax = plt.subplots(figsize=(11, 5.5))
 bars = ax.barh(profit_country.index, profit_country.to_numpy(), color="#0d3b47")
 # ax.set_title("Profit by Country", fontsize=16, fontweight="bold")
-ax.set_xlabel("Total Profit (EUR)")
+ax.set_xlabel("Total Profit (EUR)", fontsize=12)
+ax.set_xlim(0, profit_country.max() * 1.15)
+ax.tick_params(axis="both", labelsize=11)
+ax.grid(axis="x", alpha=0.18)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
 for bar, val in zip(bars, profit_country.to_numpy()):
     ax.text(
         val + 100,
         bar.get_y() + bar.get_height() / 2,
         f"€{val:,.0f}",
         va="center",
-        fontsize=9,
+        fontsize=11,
+        fontweight="bold",
     )
 plt.tight_layout()
 plt.savefig("cleaned_data/11_profit_by_country.png", dpi=240, bbox_inches="tight")
@@ -309,14 +333,14 @@ print("✓ 13_orders_by_country.png")
 
 # === 14. MONTHLY ORDERS TREND ===
 monthly_orders = df.groupby("month")["order_id"].count()
-fig, ax = plt.subplots(figsize=(10, 5))
+fig, ax = plt.subplots(figsize=(11, 5))
 ax.plot(
     monthly_orders.index.astype(str),
     monthly_orders.to_numpy(),
     marker="o",
     color="#e67e22",
-    linewidth=2,
-    markersize=6,
+    linewidth=2.8,
+    markersize=7,
 )
 ax.fill_between(
     monthly_orders.index.astype(str),
@@ -324,16 +348,16 @@ ax.fill_between(
     alpha=0.2,
     color="#e67e22",
 )
-# ax.set_title("Monthly Orders Trend 2024", fontsize=16, fontweight="bold")
-ax.set_ylabel("Number of Orders")
-ax.set_xlabel("Month")
+ax.set_ylabel("Number of Orders", fontsize=12)
+ax.set_xlabel("Month", fontsize=12)
+ax.tick_params(axis="both", labelsize=11)
+ax.set_ylim(40, monthly_orders.max() * 1.08)
 plt.xticks(rotation=45)
 for i, val in enumerate(monthly_orders.to_numpy()):
-    ax.text(i, val + 1, str(val), ha="center", fontsize=8)
+    ax.text(i, val + 1, str(val), ha="center", fontsize=9)
 plt.tight_layout()
 plt.savefig("cleaned_data/14_monthly_orders_trend.png", dpi=240, bbox_inches="tight")
 plt.close()
-print("✓ 14_monthly_orders_trend.png")
 
 # === 15. UNITS SOLD BY PRODUCT ===
 units_product = (
