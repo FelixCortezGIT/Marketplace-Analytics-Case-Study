@@ -78,6 +78,38 @@ tr:hover {
     border-radius: 8px;
 }
 
+.chart-hero {
+    margin-top: 24px;
+    margin-bottom: 32px;
+}
+
+.chart-hero img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.insight-box {
+    background: #f8fafc;
+    border: 1px solid #dbe3ea;
+    border-radius: 14px;
+    padding: 24px;
+}
+
+.insight-box h3 {
+    margin-bottom: 18px;
+    font-size: 1.1rem;
+}
+
+.insight-box ul {
+    padding-left: 18px;
+}
+
+.insight-box li {
+    margin-bottom: 12px;
+    line-height: 1.5;
+    color: #334155;
+}
+
 ul {
     padding-left: 20px;
 }

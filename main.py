@@ -6,6 +6,17 @@ import pandas as pd
 
 matplotlib.rcParams["font.family"] = "DejaVu Sans"
 
+# plt.rcParams.update({
+#     "font.size": 11,
+#     "axes.labelsize": 12,
+#     "xtick.labelsize": 10,
+#     "ytick.labelsize": 10,
+#     "axes.edgecolor": "#d6d6d6",
+#     "axes.linewidth": 0.8,
+#     "grid.color": "#e5e7eb",
+#     "grid.linewidth": 0.8,
+# })
+
 # === SETUP ===
 os.makedirs("cleaned_data", exist_ok=True)
 
@@ -43,7 +54,7 @@ ax.set_ylabel("Count")
 for i, val in enumerate([len(orders) - len(dupes), len(dupes)]):
     ax.text(i, val + 2, str(val), ha="center", fontsize=12)
 plt.tight_layout()
-plt.savefig("cleaned_data/01_duplicates.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/01_duplicates.png", dpi=240, bbox_inches="tight")
 plt.close()
 df = df.drop_duplicates(subset=["date", "product_id", "country_id", "revenue"])
 print("✓ 01_duplicates.png")
@@ -63,7 +74,7 @@ for bar, val in zip(bars, rev_country.to_numpy()):
         fontsize=9,
     )
 plt.tight_layout()
-plt.savefig("cleaned_data/02_revenue_by_country.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/02_revenue_by_country.png", dpi=240, bbox_inches="tight")
 plt.close()
 print("✓ 02_revenue_by_country.png")
 
@@ -84,7 +95,7 @@ for bar, val in zip(bars, top_products.to_numpy()):
         fontsize=8,
     )
 plt.tight_layout()
-plt.savefig("cleaned_data/03_top_products.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/03_top_products.png", dpi=240, bbox_inches="tight")
 plt.close()
 print("✓ 03_top_products.png")
 
@@ -106,7 +117,7 @@ for bar, val in zip(bars, low_margin.to_numpy()):
         fontsize=8,
     )
 plt.tight_layout()
-plt.savefig("cleaned_data/04_low_margin_products.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/04_low_margin_products.png", dpi=240, bbox_inches="tight")
 plt.close()
 print("✓ 04_low_margin_products.png")
 
@@ -133,7 +144,7 @@ for bar, val in zip(bars, return_country.to_numpy()):
         fontsize=9,
     )
 plt.tight_layout()
-plt.savefig("cleaned_data/05_return_rate_by_country.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/05_return_rate_by_country.png", dpi=240, bbox_inches="tight")
 plt.close()
 print("✓ 05_return_rate_by_country.png")
 
@@ -155,7 +166,7 @@ for bar, val in zip(bars, return_product.to_numpy()):
         fontsize=8,
     )
 plt.tight_layout()
-plt.savefig("cleaned_data/06_return_rate_by_product.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/06_return_rate_by_product.png", dpi=240, bbox_inches="tight")
 plt.close()
 print("✓ 06_return_rate_by_product.png")
 
@@ -180,7 +191,7 @@ plt.xticks(rotation=45)
 for i, val in enumerate(monthly.to_numpy()):
     ax.text(i, val + 500, f"€{val:,.0f}", ha="center", fontsize=7)
 plt.tight_layout()
-plt.savefig("cleaned_data/07_monthly_trend.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/07_monthly_trend.png", dpi=240, bbox_inches="tight")
 plt.close()
 print("✓ 07_monthly_trend.png")
 
@@ -197,7 +208,7 @@ wedges, texts, autotexts = ax.pie(
 )
 # ax.set_title("Revenue by Marketplace", fontsize=16, fontweight="bold")
 plt.tight_layout()
-plt.savefig("cleaned_data/08_revenue_by_marketplace.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/08_revenue_by_marketplace.png", dpi=240, bbox_inches="tight")
 plt.close()
 print("✓ 08_revenue_by_marketplace.png")
 
@@ -216,7 +227,7 @@ for bar, val in zip(bars, rev_cat.to_numpy()):
         fontsize=9,
     )
 plt.tight_layout()
-plt.savefig("cleaned_data/09_revenue_by_category.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/09_revenue_by_category.png", dpi=240, bbox_inches="tight")
 plt.close()
 print("✓ 09_revenue_by_category.png")
 
@@ -235,7 +246,7 @@ for bar, val in zip(bars, margin_cat.to_numpy()):
         fontsize=9,
     )
 plt.tight_layout()
-plt.savefig("cleaned_data/10_margin_by_category.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/10_margin_by_category.png", dpi=240, bbox_inches="tight")
 plt.close()
 print("✓ 10_margin_by_category.png")
 
@@ -254,7 +265,7 @@ for bar, val in zip(bars, profit_country.to_numpy()):
         fontsize=9,
     )
 plt.tight_layout()
-plt.savefig("cleaned_data/11_profit_by_country.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/11_profit_by_country.png", dpi=240, bbox_inches="tight")
 plt.close()
 print("✓ 11_profit_by_country.png")
 
@@ -274,7 +285,7 @@ for bar, val in zip(bars, aov_country.to_numpy()):
     )
 plt.tight_layout()
 plt.savefig(
-    "cleaned_data/12_avg_order_value_by_country.png", dpi=150, bbox_inches="tight"
+    "cleaned_data/12_avg_order_value_by_country.png", dpi=240, bbox_inches="tight"
 )
 plt.close()
 print("✓ 12_avg_order_value_by_country.png")
@@ -292,7 +303,7 @@ for bar, val in zip(bars, orders_country.to_numpy()):
         val + 1, bar.get_y() + bar.get_height() / 2, str(val), va="center", fontsize=9
     )
 plt.tight_layout()
-plt.savefig("cleaned_data/13_orders_by_country.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/13_orders_by_country.png", dpi=240, bbox_inches="tight")
 plt.close()
 print("✓ 13_orders_by_country.png")
 
@@ -320,7 +331,7 @@ plt.xticks(rotation=45)
 for i, val in enumerate(monthly_orders.to_numpy()):
     ax.text(i, val + 1, str(val), ha="center", fontsize=8)
 plt.tight_layout()
-plt.savefig("cleaned_data/14_monthly_orders_trend.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/14_monthly_orders_trend.png", dpi=240, bbox_inches="tight")
 plt.close()
 print("✓ 14_monthly_orders_trend.png")
 
@@ -343,7 +354,7 @@ for bar, val in zip(bars, units_product.to_numpy()):
         fontsize=9,
     )
 plt.tight_layout()
-plt.savefig("cleaned_data/15_units_sold_by_product.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/15_units_sold_by_product.png", dpi=240, bbox_inches="tight")
 plt.close()
 print("✓ 15_units_sold_by_product.png")
 
@@ -366,7 +377,7 @@ for bar, val in zip(bars, orders_market.to_numpy()):
         fontweight="bold",
     )
 plt.tight_layout()
-plt.savefig("cleaned_data/16_orders_by_marketplace.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/16_orders_by_marketplace.png", dpi=240, bbox_inches="tight")
 plt.close()
 print("✓ 16_orders_by_marketplace.png")
 
@@ -397,7 +408,7 @@ for i in range(len(heatmap_data.index)):
         )
 plt.tight_layout()
 plt.savefig(
-    "cleaned_data/17_heatmap_marketplace_country.png", dpi=150, bbox_inches="tight"
+    "cleaned_data/17_heatmap_marketplace_country.png", dpi=240, bbox_inches="tight"
 )
 plt.close()
 print("✓ 17_heatmap_marketplace_country.png")
@@ -415,7 +426,7 @@ ax.set_xlabel("")
 plt.xticks(rotation=30, ha="right")
 # ax.legend(title="Category", bbox_to_anchor=(1.01, 1), loc="upper left", fontsize=8)
 plt.tight_layout()
-plt.savefig("cleaned_data/18_category_by_country.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/18_category_by_country.png", dpi=240, bbox_inches="tight")
 plt.close()
 print("✓ 18_category_by_country.png")
 
@@ -430,7 +441,7 @@ for bar, val in zip(bars, units_cat.to_numpy()):
         val + 1, bar.get_y() + bar.get_height() / 2, str(val), va="center", fontsize=9
     )
 plt.tight_layout()
-plt.savefig("cleaned_data/19_units_sold_by_category.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/19_units_sold_by_category.png", dpi=240, bbox_inches="tight")
 plt.close()
 print("✓ 19_units_sold_by_category.png")
 
@@ -485,7 +496,7 @@ ax2.set_ylabel("Return Rate (%)")
 ax1.legend(loc="upper left")
 ax2.legend(loc="upper right")
 plt.tight_layout()
-plt.savefig("cleaned_data/20_summary_overview.png", dpi=150, bbox_inches="tight")
+plt.savefig("cleaned_data/20_summary_overview.png", dpi=240, bbox_inches="tight")
 plt.close()
 print("✓ 20_summary_overview.png")
 
