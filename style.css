@@ -106,6 +106,41 @@ body {
 .metric-box:hover {
     transform: translateY(-4px);
     box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    border-color: var(--accent-color);
+}
+
+.pipeline-flow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.pipeline-step {
+    background-color: white;
+    border: 1px solid #d8d2c8;
+    border-radius: 12px;
+    padding: 18px 22px;
+    font-weight: 700;
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.05);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.pipeline-step:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 12px 24px rgba(15, 23, 42, 0.10);
+    border-color: #0d3b47;
+}
+
+.pipeline-arrow {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #0d3b47;
 }
 
 table {
@@ -154,6 +189,7 @@ tr:hover td {
 .chart-placeholder:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border-color: var(--accent-color);
 }
 
 .chart-placeholder img {
@@ -163,6 +199,11 @@ tr:hover td {
     object-fit: contain;
     display: block;
     border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+.chart-placeholder:hover img {
+    transform: scale(1.01);
 }
 
 .marketplace-charts {
@@ -227,30 +268,32 @@ footer p {
 }
 
 @media (max-width: 900px) {
-
     .metrics-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
     .charts-grid {
         grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 600px) {
-
     .metrics-grid {
         grid-template-columns: 1fr;
     }
-
     .card {
         padding: 18px;
     }
-
+    .pipeline-flow {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .pipeline-arrow {
+        transform: rotate(90deg);
+        text-align: center;
+    }
     header h1 {
         font-size: 2rem;
     }
-
     header h2 {
         font-size: 1.2rem;
     }
