@@ -1,4 +1,71 @@
 
+header {
+    padding: 90px 70px;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background:
+        linear-gradient(
+            135deg,
+            #ebe5dc 0%,
+            #d9d1c5 100%
+        );
+    backdrop-filter: blur(10px);
+    border-radius: 28px;
+    border-left: 8px solid #0d3b47;
+    border-top: 1px solid rgba(255,255,255,0.65);
+    border-right: 1px solid rgba(255,255,255,0.65);
+    border-bottom: 1px solid rgba(255,255,255,0.65);
+    box-shadow:
+        0 16px 40px rgba(15, 23, 42, 0.08);
+    margin-bottom: 42px;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: -160px;
+    right: -160px;
+    width: 460px;
+    height: 460px;
+    background:
+        radial-gradient(
+            circle,
+            rgba(124, 58, 237, 0.16),
+            transparent 72%
+        );
+    pointer-events: none;
+}
+
+header h1 {
+    font-size: 5rem;
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 0.95;
+    color: #0f172a;
+    margin-bottom: 34px;
+    max-width: 950px;
+}
+
+header h2 {
+    font-size: 1.8rem;
+    line-height: 1.35;
+    font-weight: 700;
+    color: #1e293b;
+    max-width: 1200px;
+    margin-bottom: 28px;
+}
+
+header p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #475569;
+    max-width: 850px;
+    opacity: 0.92;
+}
 
 body {
     font-family: 'Inter', sans-serif;
@@ -6,12 +73,17 @@ body {
 }
 
 .card {
-    background-color: white;
+    background:
+        linear-gradient(
+            135deg,
+            #ebe5dc 0%,
+            #d9d1c5 100%
+        );
     padding: 24px;
     margin-bottom: 24px;
     border-radius: 12px;
-    border: 1px solid #d6d6d6;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #d8d2c8;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
 }
 
 .metrics-grid {
@@ -21,6 +93,7 @@ body {
 }
 
 .metric-box {
+    background-color: rgba(255,255,255,0.88);
     border: 1px solid #d6d6d6;
     padding: 16px;
     border-radius: 8px;
@@ -52,7 +125,11 @@ th {
     font-weight: 700;
 }
 
-tr:hover {
+td {
+    background-color: white;
+}
+
+tr:hover td {
     background-color: #f9fafb;
 }
 
@@ -67,8 +144,16 @@ tr:hover {
     border: 2px dashed #bdbdbd;
     border-radius: 12px;
     padding: 8px;
-    background-color: #f8f8f8;
+    background-color: rgba(255, 255, 255, 0.72);
     margin-bottom: 16px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.chart-placeholder:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
 
 .chart-placeholder img {
