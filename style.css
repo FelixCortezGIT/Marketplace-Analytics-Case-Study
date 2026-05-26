@@ -51,7 +51,7 @@ header h1 {
 }
 
 header h2 {
-    font-size: 1.8rem;
+    font-size: 1.55rem;
     line-height: 1.35;
     font-weight: 700;
     color: #1e293b;
@@ -70,6 +70,30 @@ header p {
 body {
     font-family: 'Inter', sans-serif;
     background-color: #f4f7fa;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #0f172a;
+    margin-bottom: 18px;
+}
+
+h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+p {
+    line-height: 1.7;
+    color: #334155;
+}
+
+li {
+    line-height: 1.6;
+    color: #334155;
 }
 
 .card {
