@@ -230,7 +230,7 @@ tr:hover td {
 }
 
 .mini-stat {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 8px;
     color: #0f172a;
@@ -239,6 +239,45 @@ tr:hover td {
 .mini-insight-card p {
     font-size: 0.95rem;
     color: #475569;
+}
+
+.future-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 22px;
+}
+
+.future-card {
+    background: rgba(255,255,255,0.88);
+    border: 1px solid #dbe3ea;
+    border-radius: 14px;
+    padding: 16px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.future-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 10px 22px rgba(15, 23, 42, 0.08);
+    border-color: #0d3b47;
+}
+
+.future-card h4 {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #0f172a;
+    margin: 0 0 8px 0;
+}
+
+.future-card p {
+    margin: 0;
+    line-height: 1.45;
+    color: #475569;
+    font-size: 0.95rem;
 }
 
 .mini-insight-card h4 {
@@ -339,6 +378,17 @@ tr:hover td {
     margin-top: -8px;
 }
 
+.bottom-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.bottom-info-grid .card {
+    margin-bottom: 0;
+}
+
 .insight-box {
     background: #f8fafc;
     border: 1px solid #dbe3ea;
@@ -370,16 +420,20 @@ li {
 }
 
 footer {
-    margin-top: 40px;
-    padding: 24px;
+    margin-top: 10px;
+    padding: 20px;
     text-align: center;
     background-color: #0d3b47;
     color: white;
     border-radius: 12px;
+    font-size: 0.95rem;
+    opacity: 0.82;
 }
 
 footer p {
     margin-bottom: 10px;
+    margin: 0;
+    opacity: 0.9;
 }
 
 @media (max-width: 900px) {
@@ -388,6 +442,12 @@ footer p {
     }
     .charts-grid {
         grid-template-columns: 1fr;
+    }
+    .bottom-info-grid {
+        grid-template-columns: 1fr;
+    }
+    .future-grid {
+    grid-template-columns: 1fr;
     }
 }
 
