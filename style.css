@@ -171,7 +171,8 @@ tr:hover td {
 .charts-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    row-gap: 6px;
+    column-gap: 26px;
     margin-top: 24px;
 }
 
@@ -300,6 +301,42 @@ tr:hover td {
     width: 100%;
     border-radius: 10px;
     max-height: 480px;
+}
+
+.chart-legend {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    margin-top: 0px;
+    padding: 12px 14px;
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid #dbe3ea;
+    border-radius: 14px;
+    font-size: 0.85rem;
+    color: #334155;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.chart-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.chart-legend i {
+    width: 13px;
+    height: 13px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.category-legend {
+    align-self: start;
+    justify-self: center;
+    height: fit-content;
+    margin-top: -8px;
 }
 
 .insight-box {

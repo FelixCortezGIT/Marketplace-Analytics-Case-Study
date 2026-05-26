@@ -499,16 +499,46 @@ plt.close()
 print("✓ 17_heatmap_marketplace_country.png")
 
 # === 18. TOP CATEGORY BY COUNTRY ===
+top_categories = ["Laptops", "Speakers", "Phones", "Headphones"]
 cat_country = (
-    df.groupby(["country_name", "category"])["revenue"].sum().unstack(fill_value=0)
+    df[df["category"].isin(top_categories)]
+    .groupby(["country_name", "category"])["revenue"]
+    .sum()
+    .unstack(fill_value=0)
 )
-fig, ax = plt.subplots(figsize=(11, 6))
-cat_country.plot(kind="bar", ax=ax, colormap="tab10")
+cat_country = cat_country[top_categories]
+fig, ax = plt.subplots(figsize=(10, 5.2))
+category_colors = {
+    "Laptops": "#2ca02c",
+    "Speakers": "#8c564b",
+    "Phones": "#9467bd",
+    "Headphones": "#ff7f0e"
+}
+cat_country.plot(
+    kind="bar",
+    ax=ax,
+    color=[category_colors[col] for col in cat_country.columns],
+    width=0.74,
+    zorder=3
+)
 # ax.set_title("Revenue by Category per Country", fontsize=16, fontweight="bold")
 ax.get_legend().remove()
-ax.set_ylabel("Revenue (EUR)")
+ax.set_ylabel("Revenue (EUR)", fontsize=12)
 ax.set_xlabel("")
-plt.xticks(rotation=30, ha="right")
+ax.tick_params(axis="y", labelsize=12)
+ax.spines["top"].set_visible(False)
+ax.spines["right"].set_visible(False)
+ax.margins(x=0.02)
+plt.xticks(rotation=25, ha="right", fontsize=12)
+for i in range(len(cat_country.index)):
+    if i % 2 == 0:
+        ax.axvspan(
+            i - 0.48,
+            i + 0.48,
+            color="#cfcfcf",
+            alpha=0.75,
+            zorder=0
+        )
 # ax.legend(title="Category", bbox_to_anchor=(1.01, 1), loc="upper left", fontsize=8)
 plt.tight_layout()
 plt.savefig("cleaned_data/18_category_by_country.png", dpi=240, bbox_inches="tight")
