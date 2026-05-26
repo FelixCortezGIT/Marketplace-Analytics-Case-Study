@@ -202,6 +202,55 @@ tr:hover td {
     margin-bottom: 0;
 }
 
+.marketplace-left-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    gap: 18px;
+}
+
+.marketplace-left-column .insight-box {
+    height: auto;
+}
+
+.mini-insights-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 4px;
+}
+
+.mini-insight-card {
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid #dbe3ea;
+    border-radius: 14px;
+    padding: 26px;
+}
+
+.mini-stat {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #0f172a;
+}
+
+.mini-insight-card p {
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+.mini-insight-card h4 {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.mini-insight-card p {
+    margin: 0;
+    line-height: 1.5;
+    color: #334155;
+}
+
 .marketplace-overview-grid .chart-placeholder img {
     max-height: 430px;
 }

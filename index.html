@@ -95,17 +95,36 @@
 
     <div class="marketplace-overview-grid">
 
-    <div class="insight-box">
-        <h3>Key Insights</h3>
+        <div class="marketplace-left-column">
 
-        <ul>
-            <li>Amazon generated the highest marketplace revenue and order volume.</li>
-            <li>Poland produced the strongest overall revenue performance.</li>
-            <li>Germany achieved the highest total profit across analyzed countries.</li>
-            <li>Austria recorded the highest average order value despite lower order volume.</li>
-            <li>Hungary and Austria showed the highest return-rate levels.</li>
-            <li>31 duplicate records were identified and removed during data preprocessing.</li>
-        </ul>
+            <div class="insight-box">
+                <h3>Key Insights</h3>
+
+                <ul>
+                    <li>Amazon generated the highest marketplace revenue and order volume.</li>
+                    <li>Poland produced the strongest overall revenue performance.</li>
+                    <li>Germany achieved the highest total profit across analyzed countries.</li>
+                    <li>Austria recorded the highest average order value despite lower order volume.</li>
+                    <li>Hungary and Austria showed the highest return-rate levels.</li>
+                </ul>
+            </div>
+
+            <div class="mini-insights-grid">
+
+                <div class="mini-insight-card">
+                    <h4>Dataset Scope</h4>
+                    <div class="mini-stat">798 Orders</div>
+                    <p>9 countries · 3 marketplaces</p>
+                </div>
+
+                <div class="mini-insight-card">
+                    <h4>Data Quality</h4>
+                    <div class="mini-stat">31 Duplicates Removed</div>
+                    <p>Validated during preprocessing workflow</p>
+                </div>
+
+            </div>
+
     </div>
 
     <div class="chart-placeholder">
@@ -113,6 +132,8 @@
         <img src="cleaned_data/17_heatmap_marketplace_country.png"
             alt="Marketplace Orders by Country Heatmap">
     </div>
+
+</div>
 
 </div>
 
