@@ -175,6 +175,37 @@ tr:hover td {
     margin-top: 24px;
 }
 
+.product-insights-grid {
+    align-items: stretch;
+}
+
+.product-insights-grid > .chart-placeholder,
+.product-insights-grid > .insight-box {
+    height: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+
+.marketplace-overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 24px;
+    margin-bottom: 32px;
+    align-items: stretch;
+}
+
+.marketplace-overview-grid .chart-placeholder,
+.marketplace-overview-grid .insight-box {
+    height: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+
+.marketplace-overview-grid .chart-placeholder img {
+    max-height: 430px;
+}
+
 .chart-placeholder {
     border: 2px solid #bdbdbd;
     border-radius: 12px;

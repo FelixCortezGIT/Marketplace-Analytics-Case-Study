@@ -469,12 +469,12 @@ heatmap_data = (
     .count()
     .unstack(fill_value=0)
 )
-fig, ax = plt.subplots(figsize=(9, 6))
+fig, ax = plt.subplots(figsize=(11, 7))
 im = ax.imshow(heatmap_data.values, cmap="YlOrRd", aspect="auto")
 ax.set_xticks(range(len(heatmap_data.columns)))
-ax.set_xticklabels(heatmap_data.columns, fontsize=11)
+ax.set_xticklabels(heatmap_data.columns, fontsize=16)
 ax.set_yticks(range(len(heatmap_data.index)))
-ax.set_yticklabels(heatmap_data.index, fontsize=10)
+ax.set_yticklabels(heatmap_data.index, fontsize=16)
 # ax.set_title("Orders by Marketplace × Country", fontsize=16, fontweight="bold")
 plt.colorbar(im, ax=ax, label="Number of Orders")
 for i in range(len(heatmap_data.index)):
@@ -485,12 +485,15 @@ for i in range(len(heatmap_data.index)):
             str(heatmap_data.values[i, j]),
             ha="center",
             va="center",
-            fontsize=10,
+            fontsize=16,
             fontweight="bold",
         )
 plt.tight_layout()
 plt.savefig(
-    "cleaned_data/17_heatmap_marketplace_country.png", dpi=240, bbox_inches="tight"
+    "cleaned_data/17_heatmap_marketplace_country.png",
+    dpi=240,
+    bbox_inches="tight",
+    pad_inches=0.15
 )
 plt.close()
 print("✓ 17_heatmap_marketplace_country.png")
